@@ -68,15 +68,9 @@ Page({
     }
     let type = this.data.chooseType;
     console.log(type, location)
-    if (type == 'home') {
-      this.setData({
-        homePostion: location
-      });
-    } else if (type == 'work') {
-      this.setData({
-        workPostion: location
-      });
-    }
+    let data = {};
+    data[type] = location;
+    this.setData(data);
   },
 
   /**
@@ -126,15 +120,9 @@ Page({
   chooseTime(e) {
     let type = e.currentTarget.dataset.type;
     let time = e.detail.value;
-    if (type == "home") {
-      this.setData({
-        homeTime: time
-      });
-    } else if (type == "work") {
-      this.setData({
-        workTime: time
-      });
-    }
+    let data = {};
+    data[type] = time;
+    this.setData(data);
   },
   openChooseRepeat() {
     this.setData({
@@ -143,7 +131,7 @@ Page({
   },
   repeatChange(e) {
     this.setData({
-      repeatValue: e.detail.value
+      repeatValue: e.detail.sort()
     })
     this.setRepeatText();
   },
@@ -155,6 +143,11 @@ Page({
     }
     this.setData({
       repeatText: text
+    })
+  },
+  closeChooseRepeat() {
+    this.setData({
+      chooseRepeat: false
     })
   }
 })

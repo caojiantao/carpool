@@ -1,37 +1,39 @@
-<view class="home" bind:tap="chooseLocation" data-type="home">
-  <view wx:if="{{homePostion}}">{{homePostion.name}}</view>
-  <view wx:else>请输入你的家庭地址</view>
-</view>
-<view class="work" bind:tap="chooseLocation" data-type="work">
-  <view wx:if="{{workPostion}}">{{workPostion.name}}</view>
-  <view wx:else>请输入你的公司地址</view>
+<view class="flex-container">
+  <view class="flex-main">
+
+    <van-cell-group>
+      <van-cell center is-link size="large" icon="wap-home-o" title="家庭地址" value="{{homePostion.name}}" data-type="homePostion" bind:tap="chooseLocation" />
+      <van-cell center is-link size="large" icon="hotel-o" title="工作地点" value="{{workPostion.name}}" bind:tap="chooseLocation" data-type="workPostion" bind:tap="chooseLocation" />
+    </van-cell-group>
+
+    <van-cell-group title=" ">
+      <van-cell center is-link size="large" icon="clock-o" title="上班时间">
+        <picker mode="time" value="09:00" bindchange="chooseTime" data-type="workTime">
+          <view class="picker">
+            {{workTime || '未设置'}}
+          </view>
+        </picker>
+      </van-cell>
+
+      <van-cell center is-link size="large" icon="clock-o" title="下班时间">
+        <picker mode="time" value="18:00" bindchange="chooseTime" data-type="homeTime">
+          <view class="picker">
+            {{homeTime || '未设置'}}
+          </view>
+        </picker>
+      </van-cell>
+    </van-cell-group>
+    <van-cell-group title=" ">
+      <van-cell center is-link size="large" icon="replay" title="重复" value="{{repeatText}}" bind:tap="openChooseRepeat" />
+    </van-cell-group>
+  </view>
+  <view class="flex-footer">
+    <van-button type="primary" bindtap="submitForm" block round>提交</van-button>
+  </view>
 </view>
 
-<view>
-  <picker mode="time" value="09:00" bindchange="chooseTime" data-type="work">
-    <view class="picker">
-      上班时间: {{workTime || '未设置'}}
-    </view>
-  </picker>
-</view>
-
-<view>
-  <picker mode="time" value="18:00" bindchange="chooseTime" data-type="home">
-    <view class="picker">
-      上班时间: {{homeTime || '未设置'}}
-    </view>
-  </picker>
-</view>
-
-<view bind:tap="openChooseRepeat">
-  重复: {{repeatText || '未设置'}}
-</view>
-
-
-<page-container show="{{chooseRepeat}}">
-  <checkbox-group bindchange="repeatChange">
-    <label class="choose-repeat-item" wx:for="{{repeatOpt}}" wx:key="index">
-      <checkbox value="{{item.value}}" checked="{{item.chose}}"/>{{item.name}}
-    </label>
-  </checkbox-group>
-</page-container>
+<van-popup show="{{chooseRepeat}}" position="bottom" bind:close="closeChooseRepeat">
+  <van-checkbox-group bind:change="repeatChange" value="{{repeatValue}}">
+    <van-checkbox wx:for="{{repeatOpt}}" wx:key="index" name="{{item.value}}" custom-class="repeat-item">{{item.name}}</van-checkbox>
+  </van-checkbox-group>
+</van-popup>

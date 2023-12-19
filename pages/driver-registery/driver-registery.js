@@ -11,8 +11,8 @@ Page({
       phone: "13437104137",
       driverLicense: "https://caojiantao.site/logo.jpg",
       licenseNumber: "鄂A888888",
-      vehiclePermit: "https://caojiantao.site/logo.jpg",
-    }
+      driverPermit: "https://caojiantao.site/logo.jpg",
+    },
   },
 
   /**
@@ -70,7 +70,19 @@ Page({
   onShareAppMessage() {
 
   },
-  uploadSuccess(e) {
-    console.log(e.detail);
+  chooseImage(e) {
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      success: res => {
+        console.log(res);
+
+        let registry = this.data.registry;
+        registry[e.currentTarget.dataset.type] = res.tempFiles[0].tempFilePath;
+        this.setData({
+          registry: registry
+        })
+      }
+    })
   }
 })

@@ -26,7 +26,6 @@ Component({
 
         init() {
             const page = getCurrentPages().pop();
-            console.log(page);
             this.setData({
                 active: this.data.list.findIndex(item => item.url === `/${page.route}`)
             });

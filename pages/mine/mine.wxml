@@ -12,6 +12,6 @@
 </van-cell-group>
 
 <van-cell-group title=" ">
-    <van-cell size="large" is-link icon="records-o" title="车主认证" value="已认证" url="/pages/vehicle-registry/vehicle-registry" />
+    <van-cell size="large" is-link icon="records-o" title="车主认证" value="已认证" url="/pages/driver-registery/driver-registery" />
     <van-cell size="large" is-link icon="hotel-o" title="行程设置" url="/pages/set-line/set-line" />
 </van-cell-group>

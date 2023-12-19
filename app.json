@@ -2,7 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/profile/profile",
-    "pages/vehicle-registry/vehicle-registry",
+    "pages/driver-registery/driver-registery",
     "pages/mine/mine",
     "pages/line/line",
     "pages/set-line/set-line"

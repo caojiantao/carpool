@@ -1,11 +1,7 @@
-.home, .work {
-  padding: 10px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  background-color: lightblue;
+page {
+  height: 100%;
 }
 
-.choose-repeat-item {
-  display: block;
+.repeat-item {
   padding: 8px;
 }
