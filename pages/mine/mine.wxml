@@ -1,5 +1,5 @@
-<mp-cells>
-  <mp-cell url="/pages/profile/profile" link>
+<van-cell-group>
+  <van-cell url="/pages/profile/profile" is-link>
     <view class="profile">
       <view class="avatar">
         <image class="avatar-mine" src="{{user.avatar}}"></image>
@@ -8,11 +8,11 @@
         <view class="profile-text-nickname">{{user.nickname}}</view>
       </view>
     </view>
-  </mp-cell>
-</mp-cells>
+  </van-cell>
+</van-cell-group>
 
 
-<mp-cells>
-  <mp-cell link hover title="车主认证" footer="已认证" url="/pages/vehicle-registry/vehicle-registry"/>
-  <mp-cell link hover title="行程设置" url="/pages/set-line/set-line"/>
-</mp-cells>
+<van-cell-group>
+  <van-cell is-link title="车主认证" value="已认证" url="/pages/vehicle-registry/vehicle-registry"/>
+  <van-cell is-link title="行程设置" url="/pages/set-line/set-line"/>
+</van-cell-group>

@@ -1,0 +1,22 @@
+{
+  "name": "carpool",
+  "version": "1.0.0",
+  "description": "一款“通勤车”微信小程序，为上班人群提供更有性价比的服务。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caojiantao/carpool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caojiantao/carpool/issues"
+  },
+  "homepage": "https://github.com/caojiantao/carpool#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.11.2"
+  }
+}

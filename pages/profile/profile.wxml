@@ -1,18 +1,14 @@
-<mp-form-page>
-  <view slot="title">
-    <button class="avatar-wrapper" open-type="chooseAvatar">
-      <image class="avatar" src="{{user.avatar}}"></image>
-    </button>
-  </view>
-  <mp-form>
-    <mp-cells>
-      <mp-cell title="昵称">
-        <input type="nickname" placeholder="请输入昵称" value="{{user.nickname}}" />
-      </mp-cell>
-    </mp-cells>
-  </mp-form>
+<view>
+  <button class="avatar-wrapper" open-type="chooseAvatar">
+    <image class="avatar" src="{{user.avatar}}"></image>
+  </button>
+</view>
+<van-cell-group>
+  <van-cell title="昵称">
+    <input type="nickname" placeholder="请输入昵称" value="{{user.nickname}}" />
+  </van-cell>
+</van-cell-group>
 
-  <view slot="button">
-    <button type="primary" class="weui-btn">确定</button>
-  </view>
-</mp-form-page>
+<view>
+  <button type="primary" class="weui-btn">确定</button>
+</view>

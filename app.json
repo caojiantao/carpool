@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/vehicle-registry/vehicle-registry",
     "pages/mine/mine",
-    "pages/home/home",
     "pages/line/line",
     "pages/set-line/set-line",
     "pages/profile/profile"
@@ -14,29 +14,19 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#1AAD19",
-    "backgroundColor": "#f0f0f0",
+    "custom": true,
     "list": [
       {
-        "pagePath": "pages/home/home",
-        "text": "首页",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home2.png"
+        "pagePath": "pages/home/home"
       },
       {
-        "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "images/mine.png",
-        "selectedIconPath": "images/mine2.png"
+        "pagePath": "pages/mine/mine"
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
-  "useExtendedLib": {
-    "weui": true
-  },
+  "useExtendedLib": {},
   "plugins": {
     "chooseLocation": {
       "version": "1.0.10",

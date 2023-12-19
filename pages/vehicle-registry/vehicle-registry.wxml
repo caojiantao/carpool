@@ -1,31 +1,29 @@
-<mp-form id="form" ext-class="flex-fill" models="{{registry}}">
-  <view class="form-main">
-    <mp-cells>
-      <mp-cell title="姓名">
-        <input value="{{registry.realname}}" />
-      </mp-cell>
-      <mp-cell title="身份证">
-        <input value="{{registry.idNumber}}" />
-      </mp-cell>
-      <mp-cell title="手机号">
-        <input value="{{registry.phone}}" />
-      </mp-cell>
-      <mp-cell title="驾驶证" extClass="weui-cell_vertical">
-        <image src="{{registry.driverLicense}}" mode="aspectFill"></image>
-      </mp-cell>
-    </mp-cells>
-    <mp-cells>
-      <mp-cell title="车牌号">
-        <input value="{{registry.licenseNumber}}" />
-      </mp-cell>
-      <mp-cell title="行驶证" extClass="weui-cell_vertical">
-        <image src="{{registry.vehiclePermit}}" mode="aspectFill"></image>
-      </mp-cell>
-    </mp-cells>
-  </view>
+<view class="form-main">
+  <van-cell-group>
+    <van-cell title="姓名">
+      <input value="{{registry.realname}}" />
+    </van-cell>
+    <van-cell title="身份证">
+      <input value="{{registry.idNumber}}" />
+    </van-cell>
+    <van-cell title="手机号">
+      <input value="{{registry.phone}}" />
+    </van-cell>
+    <van-cell title="驾驶证" extClass="weui-cell_vertical">
+      <image src="{{registry.driverLicense}}" mode="aspectFill"></image>
+    </van-cell>
+  </van-cell-group>
+  <van-cell-group>
+    <van-cell title="车牌号">
+      <input value="{{registry.licenseNumber}}" />
+    </van-cell>
+    <van-cell title="行驶证" extClass="weui-cell_vertical">
+      <image src="{{registry.vehiclePermit}}" mode="aspectFill"></image>
+    </van-cell>
+  </van-cell-group>
+</view>
 
 
-  <view class="form-footer">
-    <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
-  </view>
-</mp-form>
+<view class="form-footer">
+  <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+</view>

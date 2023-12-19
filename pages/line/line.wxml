@@ -1,4 +1,4 @@
-<map class="map" polyline="{{polyline}}" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}">
+<map id="map" class="map" polyline="{{polyline}}" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}">
 </map>
 
 <view class="detail">
@@ -11,7 +11,7 @@
       <view>{{detail.car.brand}} 余座{{detail.seat.idle}}</view>
     </view>
     <view class="detail-header-contract">
-      <mp-icon icon="mike" type="field" bind:tap="callUp"></mp-icon>
+      <van-icon name="phone-circle-o" bind:tap="callUp"/>
     </view>
   </view>
   <view class="detail-line">
