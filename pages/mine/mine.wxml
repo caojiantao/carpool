@@ -1,0 +1,18 @@
+<mp-cells>
+  <mp-cell url="/pages/profile/profile" link>
+    <view class="profile">
+      <view class="avatar">
+        <image class="avatar-mine" src="{{user.avatar}}"></image>
+      </view>
+      <view class="profile-text">
+        <view class="profile-text-nickname">{{user.nickname}}</view>
+      </view>
+    </view>
+  </mp-cell>
+</mp-cells>
+
+
+<mp-cells>
+  <mp-cell link hover title="车主认证" footer="已认证" url="/pages/vehicle-registry/vehicle-registry"/>
+  <mp-cell link hover title="行程设置" url="/pages/set-line/set-line"/>
+</mp-cells>

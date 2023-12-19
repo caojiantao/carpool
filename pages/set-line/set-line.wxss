@@ -1,0 +1,11 @@
+.home, .work {
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background-color: lightblue;
+}
+
+.choose-repeat-item {
+  display: block;
+  padding: 8px;
+}

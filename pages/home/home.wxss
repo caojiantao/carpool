@@ -1,0 +1,30 @@
+/* pages/home/home.wxss */
+.commute {
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
+}
+
+.commute-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.commute-header-driver image {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.commute-header-title {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.commute-remark {
+  font-size: 12px;
+  color: gray;
+}

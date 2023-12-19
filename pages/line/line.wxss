@@ -1,0 +1,38 @@
+page {
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.map {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.detail {
+  margin: 10px;
+  padding: 10px;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.detail-header-driver image {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.detail-header-title {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.detail-remark {
+  font-size: 12px;
+  color: gray;
+}

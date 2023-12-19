@@ -1,0 +1,37 @@
+<view class="home" bind:tap="chooseLocation" data-type="home">
+  <view wx:if="{{homePostion}}">{{homePostion.name}}</view>
+  <view wx:else>请输入你的家庭地址</view>
+</view>
+<view class="work" bind:tap="chooseLocation" data-type="work">
+  <view wx:if="{{workPostion}}">{{workPostion.name}}</view>
+  <view wx:else>请输入你的公司地址</view>
+</view>
+
+<view>
+  <picker mode="time" value="09:00" bindchange="chooseTime" data-type="work">
+    <view class="picker">
+      上班时间: {{workTime || '未设置'}}
+    </view>
+  </picker>
+</view>
+
+<view>
+  <picker mode="time" value="18:00" bindchange="chooseTime" data-type="home">
+    <view class="picker">
+      上班时间: {{homeTime || '未设置'}}
+    </view>
+  </picker>
+</view>
+
+<view bind:tap="openChooseRepeat">
+  重复: {{repeatText || '未设置'}}
+</view>
+
+
+<page-container show="{{chooseRepeat}}">
+  <checkbox-group bindchange="repeatChange">
+    <label class="choose-repeat-item" wx:for="{{repeatOpt}}" wx:key="index">
+      <checkbox value="{{item.value}}" checked="{{item.chose}}"/>{{item.name}}
+    </label>
+  </checkbox-group>
+</page-container>

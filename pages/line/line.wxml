@@ -1,0 +1,24 @@
+<map class="map" polyline="{{polyline}}" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}">
+</map>
+
+<view class="detail">
+  <view class="detail-header">
+    <view class="detail-header-driver">
+      <image src="{{detail.driver.avatar}}" mode="aspectFill"/>
+    </view>
+    <view class="detail-header-title">
+      <view>{{detail.line.time}}</view>
+      <view>{{detail.car.brand}} 余座{{detail.seat.idle}}</view>
+    </view>
+    <view class="detail-header-contract">
+      <mp-icon icon="mike" type="field" bind:tap="callUp"></mp-icon>
+    </view>
+  </view>
+  <view class="detail-line">
+    <view class="detail-line-from">{{detail.line.from.name}}</view>
+    <view class="detail-line-to">{{detail.line.to.name}}</view>
+  </view>
+  <view class="detail-remark">
+    {{detail.remark}}
+  </view>
+</view>
