@@ -6,19 +6,3 @@ page,
 image {
   width: 100%;
 }
-
-.form-main {
-  flex-grow: 1;
-  overflow: auto;
-}
-
-.form-footer {
-  width: 100%;
-  box-sizing: border-box;
-  background-color: white;
-  padding: 10px 16px env(safe-area-inset-bottom) 16px;
-}
-
-.form-footer button {
-  width: 100%;
-}

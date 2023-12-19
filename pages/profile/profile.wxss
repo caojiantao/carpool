@@ -1,11 +1,18 @@
 .avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 28px;
+    margin-right: 0;
+    padding: 0;
+    width: 56px !important;
+    border-radius: 28px;
 }
 
 .avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
+    display: block;
+    width: 56px;
+    height: 56px;
+}
+
+page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }

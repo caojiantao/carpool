@@ -7,12 +7,6 @@ page {
 
 .map {
   width: 100%;
-  flex-grow: 1;
-}
-
-.detail {
-  margin: 10px;
-  padding: 10px;
 }
 
 .detail-header {
@@ -32,7 +26,31 @@ page {
   margin-left: 10px;
 }
 
+.detail-time {
+    padding-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.detail-line {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.detail-line-from, .detail-line-to, .detail-line-pathway {
+    display: flex;
+    align-items: center;
+    padding: 2px 0;
+}
+
+.position {
+    display: inline-block;
+    margin-left: 2px;
+}
+
 .detail-remark {
   font-size: 12px;
   color: gray;
+  margin-top: 8px;
 }

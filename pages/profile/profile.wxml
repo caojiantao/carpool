@@ -1,14 +1,15 @@
-<view>
-  <button class="avatar-wrapper" open-type="chooseAvatar">
-    <image class="avatar" src="{{user.avatar}}"></image>
-  </button>
-</view>
-<van-cell-group>
-  <van-cell title="昵称">
-    <input type="nickname" placeholder="请输入昵称" value="{{user.nickname}}" />
-  </van-cell>
-</van-cell-group>
-
-<view>
-  <button type="primary" class="weui-btn">确定</button>
+<view class="flex-container">
+    <view class="flex-main">
+        <van-cell-group>
+            <van-cell center size="large" title="头像">
+                <button class="avatar-wrapper" open-type="chooseAvatar">
+                    <image class="avatar" src="{{user.avatar}}"></image>
+                </button>
+            </van-cell>
+            <van-field size="large" type="nickname" value="{{ user.nickname }}" label="昵称" placeholder="请输入昵称" input-align="right" />
+        </van-cell-group>
+    </view>
+    <view class="flex-footer">
+        <van-button type="primary" block>保存</van-button>
+    </view>
 </view>

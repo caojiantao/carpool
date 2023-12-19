@@ -22,9 +22,27 @@
 .commute-header-title {
   flex-grow: 1;
   margin-left: 10px;
+  font-weight: 700;
 }
 
 .commute-remark {
   font-size: 12px;
   color: gray;
+  margin-top: 8px;
+}
+
+.commute-line {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.commute-line-from, .commute-line-to {
+    display: flex;
+    align-items: center;
+    padding: 2px 0;
+}
+
+.position {
+    margin-left: 2px;
 }

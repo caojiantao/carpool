@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/profile/profile",
     "pages/vehicle-registry/vehicle-registry",
     "pages/mine/mine",
     "pages/line/line",
-    "pages/set-line/set-line",
-    "pages/profile/profile"
+    "pages/set-line/set-line"
   ],
   "window": {
     "backgroundTextStyle": "light",

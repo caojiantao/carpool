@@ -1,21 +1,26 @@
 <view wx:for="{{commuteList}}" wx:key="index" class="commute" data-id="{{item.id}}" bind:tap="toLineDetail">
-  <view class="commute-header">
-    <view class="commute-header-driver">
-      <image src="{{item.driver.avatar}}" mode="aspectFill"/>
+    <view class="commute-header">
+        <view class="commute-header-driver">
+            <image src="{{item.driver.avatar}}" mode="aspectFill" />
+        </view>
+        <view class="commute-header-title">
+            <view>{{item.line.time}}</view>
+        </view>
+        <view class="commute-header-price">
+            ¥{{item.seat.price}}
+        </view>
     </view>
-    <view class="commute-header-title">
-      <view>{{item.line.time}}</view>
-      <view>{{item.car.brand}} 余座{{item.seat.idle}}</view>
+    <view class="commute-line">
+        <view class="commute-line-from">
+            <image class="icon" src="/images/icon-start.png" mode="aspectFill" />
+            <text class="position">{{item.line.from}}</text>
+        </view>
+        <view class="commute-line-to">
+            <image class="icon" src="/images/icon-end.png" mode="aspectFill" />
+            <text class="position">{{item.line.to}}</text>
+        </view>
     </view>
-    <view class="commute-header-price">
-      ¥{{item.seat.price}}
+    <view class="commute-remark">
+        {{item.remark}}
     </view>
-  </view>
-  <view class="commute-line">
-    <view class="commute-line-from">{{item.line.from}}</view>
-    <view class="commute-line-to">{{item.line.to}}</view>
-  </view>
-  <view class="commute-remark">
-    {{item.remark}}
-  </view>
 </view>
