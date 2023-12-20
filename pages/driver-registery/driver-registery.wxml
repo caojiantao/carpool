@@ -25,6 +25,6 @@
     </view>
 
     <view class="flex-footer">
-        <van-button type="primary" bindtap="submitForm" block>提交</van-button>
+        <van-button type="primary" bindtap="submitForm" block round>提交</van-button>
     </view>
 </view>

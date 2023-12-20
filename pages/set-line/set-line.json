@@ -1,12 +1,13 @@
 {
-  "navigationBarTitleText": "行程设置",
-  "usingComponents": {
-    "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-button": "@vant/weapp/button/index",
-    "van-icon": "@vant/weapp/icon/index",
-    "van-popup": "@vant/weapp/popup/index",
-    "van-checkbox": "@vant/weapp/checkbox/index",
-    "van-checkbox-group": "@vant/weapp/checkbox-group/index"
-  }
+    "navigationBarTitleText": "行程设置",
+    "usingComponents": {
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-button": "@vant/weapp/button/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-popup": "@vant/weapp/popup/index",
+        "van-checkbox": "@vant/weapp/checkbox/index",
+        "van-field": "@vant/weapp/field/index",
+        "van-checkbox-group": "@vant/weapp/checkbox-group/index"
+    }
 }

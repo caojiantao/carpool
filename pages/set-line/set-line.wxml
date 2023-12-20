@@ -1,39 +1,44 @@
 <view class="flex-container">
-  <view class="flex-main">
+    <view class="flex-main">
+        <van-cell-group>
+            <van-cell center is-link size="large" icon="wap-home-o" title="家庭地址" value="{{posHome.name}}" data-type="posHome" bind:tap="chooseLocation" />
+            <van-cell center is-link size="large" icon="hotel-o" title="工作地点" value="{{posWork.name}}" bind:tap="chooseLocation" data-type="posWork" bind:tap="chooseLocation" />
+        </van-cell-group>
 
-    <van-cell-group>
-      <van-cell center is-link size="large" icon="wap-home-o" title="家庭地址" value="{{homePostion.name}}" data-type="homePostion" bind:tap="chooseLocation" />
-      <van-cell center is-link size="large" icon="hotel-o" title="工作地点" value="{{workPostion.name}}" bind:tap="chooseLocation" data-type="workPostion" bind:tap="chooseLocation" />
-    </van-cell-group>
+        <van-cell-group title=" ">
+            <van-cell center is-link size="large" icon="clock-o" title="上班时间">
+                <picker mode="time" value="09:00" bindchange="chooseTime" data-type="workTime">
+                    <view class="picker">
+                        {{workTime || '未设置'}}
+                    </view>
+                </picker>
+            </van-cell>
 
-    <van-cell-group title=" ">
-      <van-cell center is-link size="large" icon="clock-o" title="上班时间">
-        <picker mode="time" value="09:00" bindchange="chooseTime" data-type="workTime">
-          <view class="picker">
-            {{workTime || '未设置'}}
-          </view>
-        </picker>
-      </van-cell>
-
-      <van-cell center is-link size="large" icon="clock-o" title="下班时间">
-        <picker mode="time" value="18:00" bindchange="chooseTime" data-type="homeTime">
-          <view class="picker">
-            {{homeTime || '未设置'}}
-          </view>
-        </picker>
-      </van-cell>
-    </van-cell-group>
-    <van-cell-group title=" ">
-      <van-cell center is-link size="large" icon="replay" title="重复" value="{{repeatText}}" bind:tap="openChooseRepeat" />
-    </van-cell-group>
-  </view>
-  <view class="flex-footer">
-    <van-button type="primary" bindtap="submitForm" block round>提交</van-button>
-  </view>
+            <van-cell center is-link size="large" icon="clock-o" title="下班时间">
+                <picker mode="time" value="18:00" bindchange="chooseTime" data-type="homeTime">
+                    <view class="picker">
+                        {{homeTime || '未设置'}}
+                    </view>
+                </picker>
+            </van-cell>
+        </van-cell-group>
+        <van-cell-group title=" ">
+            <van-cell center is-link size="large" icon="replay" title="重复" value="{{repeatText}}" bind:tap="openChooseRepeat" />
+        </van-cell-group>
+        <van-cell-group title=" ">
+            <van-field size="large" left-icon="cash-o" type="number" label="价格" value="{{price}}" input-align="right"/>
+            <van-cell use-label-slot size="large" title="备注">
+                <van-field slot="label" type="textarea" value="{{remark}}" autosize/>
+            </van-cell>
+        </van-cell-group>
+    </view>
+    <view class="flex-footer">
+        <van-button type="primary" bindtap="submitForm" block round>提交</van-button>
+    </view>
 </view>
 
 <van-popup show="{{chooseRepeat}}" position="bottom" bind:close="closeChooseRepeat">
-  <van-checkbox-group bind:change="repeatChange" value="{{repeatValue}}">
-    <van-checkbox wx:for="{{repeatOpt}}" wx:key="index" name="{{item.value}}" custom-class="repeat-item">{{item.name}}</van-checkbox>
-  </van-checkbox-group>
+    <van-checkbox-group bind:change="repeatChange" value="{{repeatValue}}">
+        <van-checkbox wx:for="{{repeatOpt}}" wx:key="index" name="{{item.value}}" custom-class="repeat-item">{{item.name}}</van-checkbox>
+    </van-checkbox-group>
 </van-popup>
