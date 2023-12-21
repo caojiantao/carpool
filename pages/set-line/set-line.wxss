@@ -5,3 +5,13 @@ page {
 .repeat-item {
     padding: 8px;
 }
+
+.btn-reset {
+    width: 65px;
+    height: 100%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

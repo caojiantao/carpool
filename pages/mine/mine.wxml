@@ -1,6 +1,6 @@
 <van-cell-group>
     <van-cell center size="large" url="/pages/profile/profile" is-link>
-        <view class="profile">
+        <view class="profile" slot="title">
             <view class="avatar">
                 <image class="avatar-mine" src="{{user.avatar}}"></image>
             </view>

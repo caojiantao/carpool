@@ -1,43 +1,48 @@
-.line-item {
-    color: black !important;
-    text-align: left !important;
-}
-
-.commute-header {
+.line-item-header {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 
-.commute-header-driver image {
+.line-item-header .avatar {
   width: 30px;
   height: 30px;
   border-radius: 15px;
 }
 
-.commute-header-title {
+.line-item-header .time {
   flex-grow: 1;
-  margin-left: 10px;
+  padding: 0 16px;
   font-weight: 700;
+  font-size: 16px;
 }
 
-.line-item .remark {
+.line-item-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.line-item-main .pos {
+  display: flex;
+  align-items: center;
+}
+
+.line-item-main .dot-from,
+.line-item-main .dot-to {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  margin: 0 8px;
+}
+
+.line-item-main .dot-from {
+  background-color: #55de8b;
+}
+
+.line-item-main .dot-to {
+  background-color: #f27c57;
+}
+
+.line-item-main .remark {
   font-size: 12px;
   color: gray;
-}
-
-.commute-line {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-.commute-line-from, .commute-line-to {
-    display: flex;
-    align-items: center;
-    padding: 2px 0;
-}
-
-.position {
-    margin-left: 2px;
 }

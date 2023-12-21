@@ -19,6 +19,7 @@ Page({
                 no: "鄂A888888"
             },
             line: {
+                time: "05:00",
                 from: {
                     address: "北京市海淀区西三旗花园二里",
                     city: "北京市",
@@ -37,8 +38,7 @@ Page({
                     name: "中关村东升科技园北领地-西北门",
                     province: "北京市",
                 },
-                time: "05:00",
-                pathways: [{
+                pathwayList: [{
                     address: "北京市海淀区",
                     city: "北京市",
                     district: "海淀区",
@@ -76,7 +76,7 @@ Page({
             latitude: this.data.detail.line.to.latitude,
             longitude: this.data.detail.line.to.longitude,
         });
-        for (let p of this.data.detail.line.pathways) {
+        for (let p of this.data.detail.line.pathwayList) {
             markers.push({
                 id: id++,
                 latitude: p.latitude,
@@ -95,7 +95,7 @@ Page({
         let lat2 = this.data.detail.line.to.latitude;
         let lon2 = this.data.detail.line.to.longitude;
         let waypoints = [];
-        for (let p of this.data.detail.line.pathways) {
+        for (let p of this.data.detail.line.pathwayList) {
             waypoints.push(`${p.latitude},${p.longitude}`);
         }
         waypoints = waypoints.join(";");
@@ -126,16 +126,16 @@ Page({
                         borderWidth: 1
                     }]
                 })
-                 // 获取地图实例
-                const mapCtx = wx.createMapContext('map');
-                // 获取路径的边界框
-                const path = pl;
-                const boundingBox = _this.calculateBoundingBox(path);
-                // 设置地图中心和缩放级别，确保整个路径可见
-                mapCtx.includePoints({
-                    padding: [50], // 可根据需要调整
-                    points: boundingBox,
-                });
+                // 获取地图实例
+                const mapCtx = wx.createMapContext('map');
+                // 获取路径的边界框
+                const path = pl;
+                const boundingBox = _this.calculateBoundingBox(path);
+                // 设置地图中心和缩放级别，确保整个路径可见
+                mapCtx.includePoints({
+                    padding: [50], // 可根据需要调整
+                    points: boundingBox,
+                });
             }
         })
     },

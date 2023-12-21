@@ -1,5 +1,6 @@
 // pages/set-line/set-line.js
 import lbs from '../../config/lbs';
+import { weeks } from '../../config/opt';
 
 const chooseLocationPlugin = requirePlugin('chooseLocation');
 
@@ -10,53 +11,19 @@ Page({
      */
     data: {
         chooseType: null,
-        posHome: null,
-        posWork: null,
-        posPathway: [],
+        homePosition: null,
+        workPosition: null,
+        pathwayPositionList: [],
+        pathwayPositionText: "",
         homeTime: null,
         workTime: null,
         repeatValue: ['1', '2'],
         repeatText: null,
         price: 0,
-        remark: null,
+        remark: "",
 
         chooseRepeat: false,
-        repeatOpt: [{
-                name: '每周一',
-                value: '1',
-                chose: false
-            },
-            {
-                name: '每周二',
-                value: '2',
-                chose: false
-            },
-            {
-                name: '每周三',
-                value: '3',
-                chose: false
-            },
-            {
-                name: '每周四',
-                value: '4',
-                chose: false
-            },
-            {
-                name: '每周五',
-                value: '5',
-                chose: false
-            },
-            {
-                name: '每周六',
-                value: '6',
-                chose: false
-            },
-            {
-                name: '每周日',
-                value: '7',
-                chose: false
-            },
-        ],
+        repeatOpt: weeks,
         repeatOptMap: null,
     },
 
@@ -82,13 +49,6 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
-    },
-
-    /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
@@ -97,17 +57,16 @@ Page({
             return;
         }
         let type = this.data.chooseType;
-        console.log(type, location)
-        let data = {};
-        data[type] = location;
-        this.setData(data);
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
+        if (type == 'pathwayPosition') {
+            let list = this.data.pathwayPositionList || [];
+            list.push(location);
+            this.setData({ pathwayPositionList: list });
+            this.setPathwayPositionText();
+        } else {
+            let data = {};
+            data[type] = location;
+            this.setData(data);
+        }
     },
 
     /**
@@ -115,27 +74,6 @@ Page({
      */
     onUnload() {
         chooseLocationPlugin.setLocation(null);
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
     },
 
     chooseLocation(e) {
@@ -166,18 +104,34 @@ Page({
         this.setRepeatText();
     },
     setRepeatText() {
-        let text = "";
-        for (let opt of this.data.repeatValue) {
-            text += this.data.repeatOptMap.get(opt).name;
-            text += "、"
-        }
+        let text = this.data.repeatValue.map(item => this.data.repeatOptMap.get(item).name).join();
         this.setData({
             repeatText: text
         })
+    },
+    setPathwayPositionText() {
+        let text = this.data.pathwayPositionList.map(item => item.name).join();
+        this.setData({ pathwayPositionText: text })
     },
     closeChooseRepeat() {
         this.setData({
             chooseRepeat: false
         })
+    },
+    clearTime(e) {
+        let type = e.currentTarget.dataset.type;
+        let data = {};
+        data[type] = null;
+        this.setData(data);
+    },
+    clearPathwayPosition() {
+        this.setData({ pathwayPositionList: [] });
+        this.setPathwayPositionText();
+    },
+    onResetData(e) {
+        let type = e.currentTarget.dataset.type;
+        let data = {};
+        data[type] = null;
+        this.setData(data);
     }
 })

@@ -1,40 +1,38 @@
 <view class="flex-container">
-    <map id="map" class="flex-main map" polyline="{{polyline}}" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}">
-    </map>
+    <map id="map" class="flex-main map" polyline="{{polyline}}" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></map>
     <view class="flex-footer">
-        <view class="detail-header">
-            <view class="detail-header-driver">
-                <image src="{{detail.driver.avatar}}" mode="aspectFill" />
-            </view>
-            <view class="detail-header-title">
-                <view>{{detail.driver.nickname}}</view>
-            </view>
-            <view class="detail-header-contract">
+        <van-cell>
+            <view slot="title" class="line-item-header">
+                <image class="avatar" src="{{detail.driver.avatar}}" mode="aspectFill" />
+                <view class="main">
+                    <view class="nickname">{{detail.driver.nickname}}</view>
+                    <view class="car">
+                        {{detail.car.brand}} | {{detail.car.color}} | {{detail.car.no}}
+                    </view>
+                </view>
                 <van-icon name="phone-circle-o" size="26px" bind:tap="callUp" />
             </view>
-        </view>
-        <van-divider />
-        <view class="detail-time">
-            <view>{{detail.line.time}}出发</view>
-        </view>
-        <view class="detail-line">
-            <view class="detail-line-from">
-                <image class="icon" src="/images/icon-start.png" mode="aspectFill" />
-                <text class="position">{{detail.line.from.name}}</text>
-            </view>
-            <view class="detail-line-pathway">
-                <image class="icon" src="/images/icon-flag.png" mode="aspectFill" />
-                <view class="position">
-                    <text wx:for="{{detail.line.pathways}}" wx:key="index">{{item.name}}、</text>
+        </van-cell>
+        <van-cell>
+            <view slot="title" class="line-item-main">
+                <view class="header">
+                    <view class="time">{{detail.line.time}}出发</view>
+                    <view class="price">￥{{detail.seat.price}}</view>
                 </view>
+                <view class="pos">
+                    <view class="dot-from"></view>
+                    <view>{{detail.line.from.name}}</view>
+                </view>
+                <view class="pos" wx:for="{{detail.line.pathwayList}}" wx:key="index">
+                    <view class="dot-pathway"></view>
+                    <view class="pos-pathway">{{item.name}}</view>
+                </view>
+                <view class="pos">
+                    <view class="dot-to"></view>
+                    <view>{{detail.line.to.name}}</view>
+                </view>
+                <view class="remark">{{detail.remark}}</view>
             </view>
-            <view class="detail-line-to">
-                <image class="icon" src="/images/icon-end.png" mode="aspectFill" />
-                <text class="position">{{detail.line.to.name}}</text>
-            </view>
-        </view>
-        <view class="detail-remark">
-            {{detail.remark}}
-        </view>
+        </van-cell>
     </view>
 </view>

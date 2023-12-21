@@ -5,7 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    commuteList: [
+    keyword: "西小口",
+    lineList: [
+      {
+        id: 20231212,
+        driver: {
+          avatar: "https://caojiantao.site/logo.jpg",
+          nickname: "叫我宫城大人",
+          phone: "13437104137"
+        },
+        car: {
+          brand: "本田",
+          color: "蓝色",
+          no: "鄂A888888"
+        },
+        line: {
+          from: "雪梨澳乡D区",
+          to: "东升科技园",
+          time: "05:00",
+          pathways: ["西小口"]
+        },
+        seat: {
+          idle: 2,
+          price: 10
+        },
+        remark: "时间可商量，提前沟通座位。🤝🤝"
+      },
       {
         id: 20231212,
         driver: {

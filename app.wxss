@@ -21,3 +21,7 @@ page {
 .flex-footer {
     padding: 12px 16px env(safe-area-inset-bottom) 16px;
 }
+
+.transparent {
+    background-color: transparent !important;
+}
