@@ -2,16 +2,18 @@
     <van-cell center size="large" url="/pages/profile/profile" is-link>
         <view class="profile" slot="title">
             <view class="avatar">
-                <image class="avatar-mine" src="{{user.avatar}}"></image>
+                <image class="avatar-mine" src="{{user ? user.avatar : '/images/home.png'}}"></image>
             </view>
             <view class="profile-text">
-                <view class="profile-text-nickname">{{user.nickname}}</view>
+                <view class="profile-text-nickname">{{user ? user.nickname : '注册'}}</view>
             </view>
         </view>
     </van-cell>
 </van-cell-group>
-
 <van-cell-group title=" ">
-    <van-cell size="large" is-link icon="records-o" title="车主认证" value="已认证" url="/pages/driver-registery/driver-registery" />
+    <van-cell size="large" is-link icon="records-o" title="车主认证" url="/pages/driver-registery/driver-registery">
+        <view wx:if="{{user && user.driver}}">已认证</view>
+        <view wx:else>未认证</view>
+    </van-cell>
     <van-cell size="large" is-link icon="hotel-o" title="行程设置" url="/pages/set-line/set-line" />
 </van-cell-group>

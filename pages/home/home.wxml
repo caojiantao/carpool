@@ -1,6 +1,4 @@
-<van-search value="{{ keyword }}" placeholder="请输入搜索关键词" />
-
-<van-cell-group title=" " inset wx:for="{{lineList}}" wx:key="index" data-id="{{item.id}}" bind:tap="toLineDetail" custom-class="line-item">
+<van-cell-group title=" " inset wx:for="{{lineList}}" wx:key="index" data-openid="{{item.driver.openid}}" data-type="{{item.type}}" bind:tap="toLineDetail" custom-class="line-item">
     <van-cell>
         <view slot="title" class="line-item-header">
             <image class="avatar" src="{{item.driver.avatar}}" mode="aspectFill" />
@@ -18,7 +16,7 @@
                 <view class="dot-to"></view>
                 <view>{{item.line.to}}</view>
             </view>
-            <view class="remark">{{item.remark}}</view>
+            <view class="remark">{{item.seat.remark}}</view>
         </view>
     </van-cell>
 </van-cell-group>

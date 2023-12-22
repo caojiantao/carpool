@@ -3,6 +3,6 @@
     "projectname": "carpool",
     "setting": {
         "compileHotReLoad": true,
-        "urlCheck": true
+        "urlCheck": false
     }
 }

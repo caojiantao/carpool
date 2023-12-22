@@ -1,4 +1,5 @@
 import lbs from '../../config/lbs'
+import api from '../../utils/api'
 
 // pages/line/line.js
 Page({
@@ -7,59 +8,30 @@ Page({
      * 页面的初始数据
      */
     data: {
-        detail: {
-            driver: {
-                avatar: "https://caojiantao.site/logo.jpg",
-                nickname: "叫我宫城大人",
-                phone: "13437104137"
-            },
-            car: {
-                brand: "本田",
-                color: "蓝色",
-                no: "鄂A888888"
-            },
-            line: {
-                time: "05:00",
-                from: {
-                    address: "北京市海淀区西三旗花园二里",
-                    city: "北京市",
-                    district: "海淀区",
-                    latitude: 40.048438,
-                    longitude: 116.336645,
-                    name: "雪梨澳乡(D区)",
-                    province: "北京市",
-                },
-                to: {
-                    address: "北京市海淀区后屯东路与后屯中街交叉口正北方向30米",
-                    city: "北京市",
-                    district: "海淀区",
-                    latitude: 40.046728,
-                    longitude: 116.355259,
-                    name: "中关村东升科技园北领地-西北门",
-                    province: "北京市",
-                },
-                pathwayList: [{
-                    address: "北京市海淀区",
-                    city: "北京市",
-                    district: "海淀区",
-                    latitude: 40.047291,
-                    longitude: 116.351019,
-                    name: "西小口[地铁站]-A西北口",
-                    province: "北京市",
-                }]
-            },
-            seat: {
-                idle: 2,
-                price: 10
-            },
-            remark: "时间可商量，提前沟通座位。🤝🤝"
-        }
+        detail: {}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        api.get({
+            url: `/line/detail?openid=${options.openid}&type=${options.type}`
+        }).then(data => {
+            this.setData({
+                detail: data
+            })
+        })
+
+
+
+    },
+    callUp() {
+        wx.makePhoneCall({
+            phoneNumber: this.data.detail.driver.phone
+        })
+    },
+    renderMap() {
         let markers = [];
         let id = 1;
         markers.push({
@@ -86,7 +58,6 @@ Page({
         this.setData({
             markers: markers
         })
-
 
         var _this = this;
         //通过wx.request发起HTTPS接口请求
@@ -137,60 +108,6 @@ Page({
                     points: boundingBox,
                 });
             }
-        })
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
-    },
-    callUp() {
-        wx.makePhoneCall({
-            phoneNumber: this.data.detail.driver.phone
         })
     },
     // 计算路径的边界框
